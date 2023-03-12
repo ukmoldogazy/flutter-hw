@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_hw4/login_seccess.dart';
 
 class Tech extends StatefulWidget {
   const Tech({super.key, required String title});
@@ -8,6 +9,21 @@ class Tech extends StatefulWidget {
 }
 
 class _TechState extends State<Tech> {
+  bool isActive = false;
+  String? phone;
+  String? email;
+
+  void isClicked() {
+    if (phone != null && email != null) {
+      if (phone!.isEmpty || email!.isEmpty) {
+        isActive = false;
+      } else {
+        isActive = true;
+      }
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +31,7 @@ class _TechState extends State<Tech> {
       appBar: AppBar(
         backgroundColor: const Color(0xffffffff),
         title: const Text(
-          'Homework four',
+          'Visit Card',
           style: TextStyle(
             color: Colors.black,
           ),
@@ -41,7 +57,14 @@ class _TechState extends State<Tech> {
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 30),
+          const Divider(
+            height: 2,
+            thickness: 2,
+            indent: 57,
+            endIndent: 57,
+            color: Colors.white,
+          ),
+          const SizedBox(height: 23.5),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             color: Colors.white,
@@ -50,7 +73,12 @@ class _TechState extends State<Tech> {
                   fontSize: 20,
                   color: Color(0xff056c5c),
                   fontWeight: FontWeight.w600),
-              onChanged: (value) => () {},
+              onChanged: (String? value) {
+                phone = value;
+                isClicked();
+                debugPrint("Phone: $phone");
+                debugPrint("Value: $value");
+              },
               decoration: const InputDecoration(
                 hintText: '+49 163 7912826',
                 hintStyle: TextStyle(
@@ -74,20 +102,52 @@ class _TechState extends State<Tech> {
                   fontSize: 20,
                   color: Color(0xff056c5c),
                   fontWeight: FontWeight.w600),
-              onChanged: (value) => () {},
+              onChanged: (String? value) {
+                email = value;
+                isClicked();
+              },
               decoration: const InputDecoration(
-                  hintText: 'devmoldogazy@gmail.com',
-                  hintStyle: TextStyle(
-                    color: Color.fromARGB(109, 0, 0, 0),
-                  ),
-                  focusColor: Colors.white,
-                  prefixIcon: Icon(
-                    Icons.email_outlined,
-                    color: Colors.black,
-                    size: 30,
-                  )),
+                labelText: 'Enter your email',
+                labelStyle: TextStyle(
+                  color: Color.fromARGB(109, 0, 0, 0),
+                ),
+                focusColor: Colors.white,
+                prefixIcon: Icon(
+                  Icons.email_outlined,
+                  color: Colors.black,
+                  size: 30,
+                ),
+              ),
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+              elevation: 30,
+              side: const BorderSide(
+                width: 1,
+                color: Colors.black,
+              ),
+            ),
+            onPressed: isActive
+                ? () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginSeccess()));
+                  }
+                : null,
+            child: const Text(
+              'Мени чыкылдат',
+              style: TextStyle(fontSize: 18),
+            ),
+          )
         ],
       ),
     );
