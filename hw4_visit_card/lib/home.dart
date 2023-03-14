@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_hw4/login_seccess.dart';
+import 'package:login_hw4/login_success.dart';
 
 class Tech extends StatefulWidget {
   const Tech({super.key, required String title});
