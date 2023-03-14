@@ -1,3 +1,3 @@
-# counter_app_hw1
+# hw1_counter_app
 
 <img src="./counter.png"   height="500">
