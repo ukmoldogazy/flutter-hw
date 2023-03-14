@@ -1,4 +1,4 @@
-# counter_app_hw2
+# hw2_counter_app
 
 |       First Page       |          Second Page          |
 | :--------------------: | :---------------------------: |
