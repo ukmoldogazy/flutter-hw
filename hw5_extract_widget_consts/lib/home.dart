@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './components/custom_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,45 +21,14 @@ class _HomePageState extends State<HomePage> {
           children: [
             Image.network(
                 'https://avatars.githubusercontent.com/u/64630832?v=4'),
-            SizedBox(
-              width: 280,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  children: const [
-                    Icon(Icons.phone),
-                    SizedBox(width: 30),
-                    Text(
-                      'Phone number',
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800),
-                    ),
-                  ],
-                ),
-              ),
+            const CustomButton(
+              icon: Icons.phone_outlined,
+              text: 'Phone',
             ),
-            const SizedBox(height: 15),
-            SizedBox(
-              width: 280,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  children: const [
-                    Icon(Icons.phone),
-                    SizedBox(width: 30),
-                    Text(
-                      'Phone number',
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800),
-                    ),
-                  ],
-                ),
-              ),
-            )
+            const CustomButton(
+              icon: Icons.email_outlined,
+              text: 'Email',
+            ),
           ],
         ),
       ),
