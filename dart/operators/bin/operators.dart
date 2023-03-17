@@ -31,4 +31,9 @@ num milti(num a, num b) {
   return result;
 }
 
+num divider(num a, num b) {
+  final result = a / b;
+  return result;
+}
+
 // https://youtu.be/i7aaXLb5Qpo?list=PLWu9OGm_n5CcahNAV5AFUgww4Ee_5tJgU&t=1259
