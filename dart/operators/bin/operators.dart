@@ -65,6 +65,3 @@ List a = <String>['a', 'b', 'c', 'd'];
 var intValue = Random().nextInt(100);
 var nextDouble = Random().nextDouble();
 var nextBool = Random().nextBool();
-
-
-// https://youtu.be/i7aaXLb5Qpo?list=PLWu9OGm_n5CcahNAV5AFUgww4Ee_5tJgU&t=1259
