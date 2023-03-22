@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
           TextButton(
             // style: ButtonStyle(),
             onPressed: () {},
-            child: Text('A'),
+            child: const Text('A'),
           ),
         ],
       ),
