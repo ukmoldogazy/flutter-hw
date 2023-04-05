@@ -40,7 +40,7 @@ final dinmukhamed = Student(
   id: 1,
   name: 'DINMUKHAMED',
   sureName: 'ATAMBEKOV',
-  age: 22,
+  age: 26,
   email: 'dinmukhamed@gmail.com',
   address: ' Stuttgart, Germany',
   group: 4,
@@ -52,12 +52,32 @@ final kalybek = Student(
   id: 1,
   name: 'KALYBEK',
   sureName: 'ATAMBEKOV',
-  age: 22,
+  age: 12,
   email: 'kalybek@gmail.com',
   address: ' Bishkek, Kyrgyzstan',
   group: 0,
   gender: 'male',
   status: 'single',
 );
-
-List students = <Student>[moldogazy, dinmukhamed, kalybek];
+final nursultan = Student(
+  id: 1,
+  name: 'NURSULTAN',
+  sureName: 'KABYLBEKOV',
+  age: 12,
+  email: 'nursultan@gmail.com',
+  address: ' Bishkek, Kyrgyzstan',
+  group: 1,
+  gender: 'male',
+  status: 'single',
+);
+final kydyrnazar = Student(
+  id: 1,
+  name: 'KYDYRNAZAR',
+  sureName: 'ULANBEK UULU',
+  age: 12,
+  email: 'kydyrnazar@gmail.com',
+  address: ' Bishkek, Kyrgyzstan',
+  group: 3,
+  gender: 'male',
+  status: 'single',
+);
