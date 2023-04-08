@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hw7_new_visit_card/model.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({super.key, required this.student});
@@ -12,7 +11,9 @@ class UserPage extends StatelessWidget {
         title: const Text('UserPage'),
       ),
       body: Column(
-        children: const [Text('User data...')],
+        children: [
+          Text(student),
+        ],
       ),
     );
   }

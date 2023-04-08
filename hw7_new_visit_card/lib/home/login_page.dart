@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => const UserPage(
+              builder: (context) => UserPage(
                     student: student.name,
                   )),
         );
@@ -77,81 +77,106 @@ class _LoginPageState extends State<LoginPage> {
         title: Text('Login Page'.toUpperCase()),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                FlutterLogo(size: 80),
-                Text(
-                  'Flutter',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text(
-                  'Welcome to Saifty!',
-                  style: AppTextStyle.welcomeStyle,
-                ),
-                Icon(Icons.safety_check, size: 30)
-              ],
-            ),
-            const Text('Keep your data safe!'),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-              child: TextField(
-                onChanged: (String value) {
-                  _name = value;
-                  debugPrint("Value works: $value");
-                },
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Name:'),
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                'https://wallpapercave.com/wp/wp6245385.jpg',
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: TextField(
-                onChanged: (String value) {
-                  _email = value;
-                  debugPrint("Value works: $value");
-                },
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Email:'),
-              ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 30,
+              top: 90,
+              right: 30,
+              bottom: 90,
             ),
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Forgot Password',
-                style: TextStyle(
-                  color: Colors.blue,
-                ),
-              ),
-            ),
-            Container(
-              height: 50,
-              width: 250,
+            child: Container(
               decoration: BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: TextButton(
-                onPressed: () {
-                  controllerNameEmail(_name!, _email!);
-                },
-                child: const Text(
-                  'Forgot Password',
-                  style: TextStyle(
-                    color: Colors.black,
+                  color: Color.fromARGB(0, 141, 141, 141).withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(20)),
+              width: double.infinity,
+              height: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      FlutterLogo(size: 80),
+                      Text(
+                        'Flutter',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
                   ),
-                ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        'Welcome to Saifty!',
+                        style: AppTextStyle.welcomeStyle,
+                      ),
+                      Icon(Icons.safety_check, size: 30)
+                    ],
+                  ),
+                  const Text('Keep your data safe!'),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 30),
+                    child: TextField(
+                      onChanged: (String value) {
+                        _name = value;
+                        debugPrint("Value works: $value");
+                      },
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'Name:'),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: TextField(
+                      onChanged: (String value) {
+                        _email = value;
+                        debugPrint("Value works: $value");
+                      },
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'Email:'),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Forgot Password',
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        controllerNameEmail(_name!, _email!);
+                      },
+                      child: const Text(
+                        'Forgot Password',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
