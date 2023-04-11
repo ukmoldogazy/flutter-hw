@@ -1,7 +1,5 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
-import '../components/demo_black_key.dart';
-import '../components/demo_white_key.dart';
 
 class DemoScrin extends StatefulWidget {
   const DemoScrin({super.key});
@@ -14,38 +12,62 @@ class _DemoScrinState extends State<DemoScrin> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: SizedBox(
-          width: double.infinity,
-          height: 440,
-          child: Stack(
-            children: [
-              ListView.builder(
-                itemCount: 7,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return const DemoWhiteKey();
-                },
-              ),
-              Row(
-                children: const [
-                  SizedBox(width: 51),
-                  DemoBlackKey(),
-                  SizedBox(width: 20),
-                  DemoBlackKey(),
-                  SizedBox(width: 20),
-                  DemoBlackKey(),
-                  SizedBox(width: 20),
-                  DemoBlackKey(),
-                  SizedBox(width: 20),
-                  DemoBlackKey(),
-                  SizedBox(width: 20),
-                  DemoBlackKey(),
-                ],
-              )
-            ],
-          ),
+        child: Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                WhitePlay(onTap: () {
+                  AudioPlayer().play(AssetSource('do.mp3'));
+                }),
+                const SizedBox(width: 15),
+                WhitePlay(onTap: () {
+                  AudioPlayer().play(AssetSource('re.mp3'));
+                }),
+                const SizedBox(width: 15),
+                WhitePlay(onTap: () {
+                  AudioPlayer().play(AssetSource('mi.mp3'));
+                }),
+                const SizedBox(width: 15),
+                WhitePlay(onTap: () {
+                  AudioPlayer().play(AssetSource('fa.mp3'));
+                }),
+                const SizedBox(width: 15),
+                WhitePlay(onTap: () {
+                  AudioPlayer().play(AssetSource('sol.mp3'));
+                }),
+                const SizedBox(width: 15),
+                WhitePlay(onTap: () {
+                  AudioPlayer().play(AssetSource('lya.mp3'));
+                }),
+                const SizedBox(width: 15),
+                WhitePlay(onTap: () {
+                  AudioPlayer().play(AssetSource('si.mp3'));
+                }),
+              ],
+            ),
+          ],
         ),
+      ),
+    ));
+  }
+}
+
+class WhitePlay extends StatelessWidget {
+  const WhitePlay({super.key, required this.onTap});
+  final Function() onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 120,
+        width: 60,
+        color: Colors.white,
       ),
     );
   }
