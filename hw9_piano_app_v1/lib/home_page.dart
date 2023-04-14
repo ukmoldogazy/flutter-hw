@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './container_widget.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -19,37 +20,39 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 3,
-              child: Container(
-                width: 200,
-                height: 100,
-                color: Colors.grey[300],
-                child: Column(
-                  children: const [
-                    Text('Text 1'),
-                    Text('Text 1'),
-                    Text('Text 1'),
-                  ],
-                ),
-              ),
+          children: const [
+            ContainerWidget(
+              containersText: 'Container1',
+              containersText1: 'Container 2',
             ),
-            const SizedBox(height: 20),
-            Expanded(
-              flex: 1,
-              child: Container(
-                width: 200,
-                height: 100,
-                color: Colors.grey[300],
-                child: Column(
-                  children: const [
-                    Text('Text 1'),
-                    Text('Text 1'),
-                  ],
-                ),
-              ),
+            SizedBox(height: 20),
+            ContainerWidget(
+              containersText: 'Container1',
+              containersText1: 'Container 2',
+              icon: Icons.abc_outlined,
             ),
+            SizedBox(height: 20),
+            ContainerWidget(
+              containersText: 'Container1',
+              containersText1: 'Container 2',
+            ),
+            SizedBox(height: 20),
+            ContainerWidget(
+              containersText: 'Container1',
+              containersText1: 'Container 2',
+              icon: Icons.pin_sharp,
+            ),
+            SizedBox(height: 20),
+            ContainerWidget(
+              containersText: 'Container1',
+              containersText1: 'Container 2',
+            ),
+            SizedBox(height: 20),
+            ContainerWidget(
+              containersText: 'Container1',
+              containersText1: 'Container 2',
+            ),
+            SizedBox(height: 20),
           ],
         ),
       ),
