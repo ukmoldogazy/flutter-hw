@@ -14,7 +14,7 @@ class ContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 110,
       width: double.infinity,
       color: Colors.grey,
       child: Column(
