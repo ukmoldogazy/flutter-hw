@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             ContainerWidget(
-              containersText: 'Container 1',
+              containersText: 'Container1',
               containersText1: 'Container 2',
             ),
             SizedBox(height: 20),
@@ -33,12 +33,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: 20),
             ContainerWidget(
-              containersText: 'Container1',
+              containersText: 'Container 1',
               containersText1: 'Container 2',
             ),
             SizedBox(height: 20),
             ContainerWidget(
-              containersText: 'Container1',
+              containersText: 'Container 1',
               containersText1: 'Container 2',
               icon: Icons.pin_sharp,
             ),
