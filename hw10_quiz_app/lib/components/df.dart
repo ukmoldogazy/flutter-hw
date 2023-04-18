@@ -12,6 +12,50 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   UseQuiz useQuiz = UseQuiz();
+  List<Icon> getIcons = [];
+
+  void checker(bool use) {
+    bool correctAnswer = useQuiz.getAnswer();
+    setState(
+      () {
+        if (useQuiz.iseFinished() == true) {
+          showDialog<void>(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text('Cencel booking'),
+                content: SingleChildScrollView(
+                  child: ListBody(
+                    children: const <Widget>[
+                      Text('Are you sure want to cencel bkooking?'),
+                    ],
+                  ),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('No'),
+                  ),
+                ],
+              );
+            },
+          );
+          useQuiz.indexZero();
+        } else {
+          if (correctAnswer == use) {
+            getIcons.add(const Icon(Icons.check));
+          } else {
+            getIcons.add(const Icon(Icons.close));
+          }
+          useQuiz.nextQuestion();
+          getIcons = [];
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,20 +115,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Row(
-              children: const [
-                Icon(
-                  Icons.check,
-                  color: AppColors.trueBgColor,
-                  size: 40,
-                ),
-                Icon(
-                  Icons.close,
-                  color: AppColors.falseBgColor,
-                  size: 40,
-                ),
-              ],
-            ),
+
+            // ListView.builder(
+            //     itemCount: getIcons.length,
+            //     scrollDirection: Axis.horizontal,
+            //     itemBuilder: (context, index) {
+            //       // return getIcons;
+            //     })
           ],
         ),
       ),
