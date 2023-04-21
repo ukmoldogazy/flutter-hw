@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
           context,
           MaterialPageRoute(
               builder: (context) => UserPage(
-                    student: student.name,
+                    student: student,
                   )),
         );
         break;
@@ -80,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
+              fit: BoxFit.cover,
               image: NetworkImage(
                 'https://wallpapercave.com/wp/wp6245385.jpg',
               ),
@@ -94,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             child: Container(
               decoration: BoxDecoration(
-                  color: Color.fromARGB(0, 141, 141, 141).withOpacity(0.3),
+                  color: const Color.fromARGB(255, 72, 72, 72).withOpacity(0.5),
                   borderRadius: BorderRadius.circular(20)),
               width: double.infinity,
               height: double.infinity,
@@ -107,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                       FlutterLogo(size: 80),
                       Text(
                         'Flutter',
-                        style: TextStyle(fontSize: 20),
+                        style: AppTextStyle.welcomeStyle,
                       ),
                     ],
                   ),
@@ -118,7 +119,8 @@ class _LoginPageState extends State<LoginPage> {
                         'Welcome to Saifty!',
                         style: AppTextStyle.welcomeStyle,
                       ),
-                      Icon(Icons.safety_check, size: 30)
+                      Icon(Icons.safety_check,
+                          size: 30, color: Color.fromARGB(255, 140, 211, 143))
                     ],
                   ),
                   const Text('Keep your data safe!'),
@@ -131,7 +133,15 @@ class _LoginPageState extends State<LoginPage> {
                         debugPrint("Value works: $value");
                       },
                       decoration: const InputDecoration(
-                          border: OutlineInputBorder(), labelText: 'Name:'),
+                        border: OutlineInputBorder(),
+                        labelText: 'Name:',
+                        hintText: 'MOLDOGAZY',
+                        labelStyle:
+                            TextStyle(color: Colors.white, fontSize: 24),
+                        hintStyle: TextStyle(color: Colors.white, fontSize: 24),
+                        helperStyle:
+                            TextStyle(color: Colors.white, fontSize: 24),
+                      ),
                     ),
                   ),
                   Padding(
@@ -142,7 +152,15 @@ class _LoginPageState extends State<LoginPage> {
                         debugPrint("Value works: $value");
                       },
                       decoration: const InputDecoration(
-                          border: OutlineInputBorder(), labelText: 'Email:'),
+                        border: OutlineInputBorder(),
+                        labelText: 'Email:',
+                        hintText: 'ukmdoldogazy@gmail.com',
+                        labelStyle:
+                            TextStyle(color: Colors.white, fontSize: 24),
+                        hintStyle: TextStyle(color: Colors.white, fontSize: 24),
+                        helperStyle:
+                            TextStyle(color: Colors.white, fontSize: 24),
+                      ),
                     ),
                   ),
                   TextButton(
@@ -166,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                         controllerNameEmail(_name!, _email!);
                       },
                       child: const Text(
-                        'Forgot Password',
+                        'Submit',
                         style: TextStyle(
                           color: Colors.black,
                         ),
