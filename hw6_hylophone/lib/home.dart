@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
       child: ElevatedButton(
         style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(color)),
         onPressed: () {
-          // final player = AudioCache();
+          final player = AudioCache();
           // player.play('assets/note1.mp3');
           // player.play(AssetSource('assets/note1.mp3'));
         },
