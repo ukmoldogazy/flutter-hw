@@ -1,5 +1,5 @@
 // import 'package:audioplayers/audioplayers.dart';
-import 'package:audioplayers/audioplayers.dart';
+// import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
       child: ElevatedButton(
         style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(color)),
         onPressed: () {
-          final player = AudioCache();
+          // final player = AudioCache();
           // player.play('assets/note1.mp3');
           // player.play(AssetSource('assets/note1.mp3'));
         },
