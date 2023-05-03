@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-/*
+/*=
   void controllerNameEmail(String name, String email) {
     for (int i = 0; i <= students.length; i++) {
       if (name == students[i] && email == students[i]) {
