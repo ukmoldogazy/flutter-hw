@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hw11_bmi_calculator/constants/text_styles.dart';
+import 'package:hw11_bmi_calculator/components/status_card_bottom.dart';
+import 'package:hw11_bmi_calculator/constants/colors.dart';
+import '../constants/texts.dart';
+import './status_card.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,19 +15,69 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff0A001F),
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
-        title:
-            const Text('BMI CALCULATOR', style: AppTextStyle.appBarTextStyle),
+        title: const Text(AppTexts.bmi),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Column(),
-            ],
-          )
-        ],
+      body: Padding(
+        padding:
+            const EdgeInsets.only(top: 32, left: 21, bottom: 41, right: 21),
+        child: Column(
+          children: [
+            Expanded(
+              child: Row(
+                children: const [
+                  StatusCard(
+                    icon: Icons.male,
+                    text: 'MALE',
+                  ),
+                  SizedBox(width: 39),
+                  StatusCard(
+                    icon: Icons.female,
+                    text: 'FEMALE',
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 18),
+            Expanded(
+              child: Row(
+                children: const [
+                  StatusCard(
+                    icon: Icons.height,
+                    text: 'HEIGHT',
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 18),
+            Expanded(
+              child: Row(
+                children: const [
+                  StatusCardBottom(
+                    icon: Icons.abc,
+                    text: 'dd',
+                    san: 3,
+                  ),
+                  SizedBox(width: 39),
+                  StatusCardBottom(
+                    icon: Icons.abc,
+                    text: 'dd',
+                    san: 3,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 73,
+        width: double.infinity,
+        color: AppColors.pinkColor,
+        child: const Center(
+          child: Text(AppTexts.calculator),
+        ),
       ),
     );
   }
