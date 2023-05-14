@@ -16,8 +16,14 @@ class StatusCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon),
-            Text(text),
+            Icon(
+              icon,
+              size: 20,
+            ),
+            Text(
+              text,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+            ),
           ],
         ),
       ),

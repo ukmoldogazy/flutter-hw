@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
+import 'circular_button.dart';
 
 class StatusCardBottom extends StatelessWidget {
-  const StatusCardBottom(
-      {super.key, required this.icon, required this.text, required this.san});
-  final IconData icon;
+  const StatusCardBottom({super.key, required this.text, required this.san});
+
   final String text;
-  final int san;
+  final String san;
 
   @override
   Widget build(BuildContext context) {
@@ -18,25 +18,29 @@ class StatusCardBottom extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(text),
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Text(
+              san,
+              style: const TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 45,
-                  height: 45,
-                  child: FloatingActionButton(
-                    onPressed: () {},
-                    child: const Icon(Icons.remove),
-                  ),
+              children: const [
+                CircularButton(
+                  icon: Icons.remove,
                 ),
-                SizedBox(
-                  width: 45,
-                  height: 45,
-                  child: FloatingActionButton(
-                    onPressed: () {},
-                    child: const Icon(Icons.add),
-                  ),
+                SizedBox(width: 10),
+                CircularButton(
+                  icon: Icons.add,
                 ),
               ],
             )

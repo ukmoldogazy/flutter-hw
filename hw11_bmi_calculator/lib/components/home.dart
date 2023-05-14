@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hw11_bmi_calculator/components/status_card_bottom.dart';
+import 'package:hw11_bmi_calculator/components/status_card_slider.dart';
 import 'package:hw11_bmi_calculator/constants/colors.dart';
 import '../constants/texts.dart';
 import './status_card.dart';
@@ -43,9 +44,11 @@ class _HomeState extends State<Home> {
             Expanded(
               child: Row(
                 children: const [
-                  StatusCard(
-                    icon: Icons.height,
-                    text: 'HEIGHT',
+                  StatusCardSlider(
+                    textHeight: AppTexts.height,
+                    textNumber: '180',
+                    textMeasurmment: 'cm',
+                    san: 180,
                   ),
                 ],
               ),
@@ -55,15 +58,13 @@ class _HomeState extends State<Home> {
               child: Row(
                 children: const [
                   StatusCardBottom(
-                    icon: Icons.abc,
-                    text: 'dd',
-                    san: 3,
+                    text: AppTexts.weight,
+                    san: '60',
                   ),
                   SizedBox(width: 39),
                   StatusCardBottom(
-                    icon: Icons.abc,
-                    text: 'dd',
-                    san: 3,
+                    text: AppTexts.age,
+                    san: '28',
                   ),
                 ],
               ),
@@ -76,7 +77,13 @@ class _HomeState extends State<Home> {
         width: double.infinity,
         color: AppColors.pinkColor,
         child: const Center(
-          child: Text(AppTexts.calculator),
+          child: Text(
+            AppTexts.calculator,
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ),
       ),
     );
