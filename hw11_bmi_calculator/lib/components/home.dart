@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
           child: Text(
             AppTexts.calculator,
             style: TextStyle(
-              fontSize: 21,
+              fontSize: 22,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -90,5 +90,5 @@ class _HomeState extends State<Home> {
   }
 }
 
-// =
+
 //https://youtu.be/jfoID_iJ_U8?list=PLWu9OGm_n5CcahNAV5AFUgww4Ee_5tJgU&t=3602
