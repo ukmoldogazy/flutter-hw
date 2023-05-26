@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hw11_bmi_calculator/components/status_card_bottom.dart';
-import 'package:hw11_bmi_calculator/components/status_card_slider.dart';
+import 'package:hw11_bmi_calculator/components/height.dart';
+
 import 'package:hw11_bmi_calculator/constants/colors.dart';
 import '../constants/texts.dart';
 import './status_card.dart';
+import 'calculate_button.dart';
+import 'male_female.dart';
+import 'weight_age.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,6 +16,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool isTrue = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,44 +31,60 @@ class _HomeState extends State<Home> {
           children: [
             Expanded(
               child: Row(
-                children: const [
+                children: [
                   StatusCard(
-                    icon: Icons.male,
-                    text: 'MALE',
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          isTrue = true;
+                        });
+                      },
+                      child: MaleFemale(
+                        icon: Icons.male,
+                        text: AppTexts.male,
+                        isTrue: isTrue,
+                      ),
+                    ),
                   ),
-                  SizedBox(width: 39),
+                  const SizedBox(width: 35),
                   StatusCard(
-                    icon: Icons.female,
-                    text: 'FEMALE',
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          isTrue = false;
+                        });
+                      },
+                      child: MaleFemale(
+                        icon: Icons.female,
+                        text: AppTexts.female,
+                        isTrue: !isTrue,
+                      ),
+                    ),
                   ),
                 ],
+              ),
+            ),
+            const SizedBox(height: 18),
+            const StatusCard(
+              child: Height(
+                textHeight: AppTexts.height,
+                textNumber: '180',
+                textMeasurmment: 'cm',
               ),
             ),
             const SizedBox(height: 18),
             Expanded(
               child: Row(
                 children: const [
-                  StatusCardSlider(
-                    textHeight: AppTexts.height,
-                    textNumber: '180',
-                    textMeasurmment: 'cm',
-                    san: 180,
+                  StatusCard(
+                    child: WeightAge(text: AppTexts.weight, san: '60'),
                   ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 18),
-            Expanded(
-              child: Row(
-                children: const [
-                  StatusCardBottom(
-                    text: AppTexts.weight,
-                    san: '60',
-                  ),
-                  SizedBox(width: 39),
-                  StatusCardBottom(
-                    text: AppTexts.age,
-                    san: '28',
+                  SizedBox(width: 25),
+                  StatusCard(
+                    child: WeightAge(
+                      text: AppTexts.age,
+                      san: '28',
+                    ),
                   ),
                 ],
               ),
@@ -72,22 +92,7 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 73,
-        width: double.infinity,
-        color: AppColors.pinkColor,
-        child: const Center(
-          child: Text(
-            AppTexts.calculator,
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-      ),
+      bottomNavigationBar: const CalculateButton(),
     );
   }
 }
-// 
-//https://youtu.be/jfoID_iJ_U8?list=PLWu9OGm_n5CcahNAV5AFUgww4Ee_5tJgU&t=3602
