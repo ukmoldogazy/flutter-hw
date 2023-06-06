@@ -17,6 +17,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool isTrue = true;
+  int weight = 74;
+  int age = 22;
+  double height = 180;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,25 +69,54 @@ class _HomeState extends State<Home> {
               ),
             ),
             const SizedBox(height: 18),
-            const StatusCard(
+            StatusCard(
               child: Height(
                 textHeight: AppTexts.height,
-                textNumber: '180',
+                textNumber: '${height.toInt()}',
                 textMeasurmment: 'cm',
+                onChanged: (value) {
+                  setState(() {
+                    height = value;
+                  });
+                },
+                height: height,
               ),
             ),
             const SizedBox(height: 18),
             Expanded(
               child: Row(
-                children: const [
+                children: [
                   StatusCard(
-                    child: WeightAge(text: AppTexts.weight, san: '60'),
+                    child: WeightAge(
+                      text: AppTexts.weight,
+                      san: '$weight',
+                      removePressButton: () {
+                        setState(() {
+                          weight--;
+                        });
+                      },
+                      addPressButton: () {
+                        setState(() {
+                          weight++;
+                        });
+                      },
+                    ),
                   ),
-                  SizedBox(width: 25),
+                  const SizedBox(width: 25),
                   StatusCard(
                     child: WeightAge(
                       text: AppTexts.age,
-                      san: '28',
+                      san: '$age',
+                      removePressButton: () {
+                        setState(() {
+                          age--;
+                        });
+                      },
+                      addPressButton: () {
+                        setState(() {
+                          age++;
+                        });
+                      },
                     ),
                   ),
                 ],

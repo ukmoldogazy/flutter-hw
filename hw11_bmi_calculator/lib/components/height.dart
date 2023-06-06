@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 class Height extends StatelessWidget {
@@ -7,11 +7,15 @@ class Height extends StatelessWidget {
     required this.textHeight,
     required this.textNumber,
     required this.textMeasurmment,
+    required this.height,
+    required this.onChanged,
   });
 
   final String textHeight;
   final String textNumber;
   final String textMeasurmment;
+  final double height;
+  final void Function(double) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +52,13 @@ class Height extends StatelessWidget {
         ),
         SizedBox(
           width: 300,
-          child: CupertinoSlider(
-            value: 180,
+          child: Slider.adaptive(
+            value: height,
             min: 0,
             activeColor: AppColors.whiteColor,
             thumbColor: AppColors.pinkColor,
             max: 250,
-            onChanged: (value) {},
+            onChanged: onChanged,
           ),
         )
       ],

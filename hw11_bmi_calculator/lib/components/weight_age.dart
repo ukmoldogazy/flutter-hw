@@ -8,10 +8,14 @@ class WeightAge extends StatelessWidget {
     super.key,
     required this.text,
     required this.san,
+    required this.addPressButton,
+    required this.removePressButton,
   });
 
   final String text;
   final String san;
+  final void Function() addPressButton;
+  final void Function() removePressButton;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +32,15 @@ class WeightAge extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             CircularButton(
               icon: Icons.remove,
+              pressButton: removePressButton,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             CircularButton(
               icon: Icons.add,
+              pressButton: addPressButton,
             ),
           ],
         )

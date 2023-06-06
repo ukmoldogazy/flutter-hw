@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hw11_bmi_calculator/constants/colors.dart';
 
 class AppTextStyle {
   static const appBarTextStyle = TextStyle(
@@ -19,6 +20,7 @@ class AppTextStyle {
 
   static const calculateButtonText = TextStyle(
     fontSize: 22,
+    color: AppColors.whiteColor,
     fontWeight: FontWeight.w500,
   );
 }
