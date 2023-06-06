@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:hw11_bmi_calculator/components/height.dart';
 
@@ -6,6 +8,7 @@ import '../constants/texts.dart';
 import './status_card.dart';
 import 'calculate_button.dart';
 import 'male_female.dart';
+import 'result.dart';
 import 'weight_age.dart';
 
 class Home extends StatefulWidget {
@@ -20,6 +23,27 @@ class _HomeState extends State<Home> {
   int weight = 74;
   int age = 22;
   double height = 180;
+
+  void results() {
+    final result = weight / pow(height / 100, 2);
+
+    if (result <= 18.5) {
+      // debugPrint('You are underwweight: $result');
+      _showAlertDialog(context, 'You are underwweight: $result');
+    } else if (result >= 18.6 && result <= 25) {
+      // debugPrint('You are normal: $result');
+      _showAlertDialog(context, 'You are normal: $result');
+    } else if (result >= 25.1 && result <= 30) {
+      // debugPrint('You are overweight: $result');
+      _showAlertDialog(context, 'You are overweight: $result');
+    } else if (result >= 30.1 && result <= 35) {
+      // debugPrint('You are obesity: $result');
+      _showAlertDialog(context, 'You are obesity: $result');
+    } else if (result <= 35.1) {
+      // debugPrint('You are super triple obesity: $result');
+      _showAlertDialog(context, 'You are super triple obesity: $result');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +149,39 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      bottomNavigationBar: const CalculateButton(),
+      bottomNavigationBar: CalculateButton(
+        onPressed: () {
+          results();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const Result(),
+            ),
+          );
+        },
+      ),
     );
   }
+}
+
+// ÷=====÷=======================
+Future<void> _showAlertDialog(BuildContext context, String text) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text(AppTexts.bmi),
+        content: Text(text),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
