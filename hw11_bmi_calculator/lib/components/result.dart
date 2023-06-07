@@ -1,8 +1,7 @@
+import '../constants/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:hw11_bmi_calculator/components/all_calculator.dart';
 import 'package:hw11_bmi_calculator/constants/colors.dart';
-
-import '../constants/text_styles.dart';
 import '../constants/texts.dart';
 
 class Result extends StatelessWidget {
@@ -25,7 +24,7 @@ class Result extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
-        title: const Text('Result'),
+        title: const Text(AppTexts.resultMain),
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, top: 43),
@@ -35,7 +34,7 @@ class Result extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(left: 14),
               child: Text(
-                'Жыйынтык',
+                AppTexts.resultMain,
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
@@ -80,7 +79,7 @@ class Result extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: ElevatedButton(
+      bottomNavigationBar: ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.pinkColor,
             shape: const RoundedRectangleBorder(

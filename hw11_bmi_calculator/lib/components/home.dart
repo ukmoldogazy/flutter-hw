@@ -152,7 +152,7 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: CalculateButton(
         onPressed: () {
           // ====================888888888888888====================
-          // results();
+          results();
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -168,7 +168,7 @@ class _HomeState extends State<Home> {
   }
 }
 
-// ÷=====÷=======================
+// =======================
 Future<void> _showAlertDialog(BuildContext context, String text) async {
   return showDialog<void>(
     context: context,
