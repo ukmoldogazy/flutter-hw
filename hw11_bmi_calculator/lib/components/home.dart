@@ -151,11 +151,15 @@ class _HomeState extends State<Home> {
       ),
       bottomNavigationBar: CalculateButton(
         onPressed: () {
-          results();
+          // ====================888888888888888====================
+          // results();
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Result(),
+              builder: (context) => Result(
+                heightOfYou: height,
+                weightOfYou: weight,
+              ),
             ),
           );
         },

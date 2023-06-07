@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:hw11_bmi_calculator/components/all_calculator.dart';
 import 'package:hw11_bmi_calculator/constants/colors.dart';
 
 import '../constants/text_styles.dart';
 import '../constants/texts.dart';
 
 class Result extends StatelessWidget {
-  const Result({super.key});
+  const Result({
+    super.key,
+    required this.heightOfYou,
+    required this.weightOfYou,
+  });
+
+  final double heightOfYou;
+  final int weightOfYou;
 
   @override
   Widget build(BuildContext context) {
+    double results = BmiCalculator().bmi(
+      height: heightOfYou,
+      weight: weightOfYou,
+    );
+
     return Scaffold(
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
@@ -38,26 +51,26 @@ class Result extends StatelessWidget {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
+                children: [
                   Text(
-                    'Нормалдуу',
-                    style: TextStyle(
+                    BmiCalculator().bmiResult(results),
+                    style: const TextStyle(
                       fontSize: 24,
                       color: AppColors.resultTitleColor,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
-                    '24.2',
-                    style: TextStyle(
+                    results.toStringAsFixed(1),
+                    style: const TextStyle(
                       fontSize: 80,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
-                    'Сиздин дене салмагыңыз нормалдуу. Азаматсыз!',
-                    style: TextStyle(
-                      fontSize: 13,
+                    BmiCalculator().bmiDescription(results),
+                    style: const TextStyle(
+                      fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -74,7 +87,9 @@ class Result extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.zero),
             ),
             minimumSize: const Size(double.infinity, 73)),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
         child: const Text(
           AppTexts.result,
           style: AppTextStyle.calculateButtonText,
