@@ -57,7 +57,7 @@ class Result extends StatelessWidget {
                   Text(
                     'Сиздин дене салмагыңыз нормалдуу. Азаматсыз!',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 13,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
