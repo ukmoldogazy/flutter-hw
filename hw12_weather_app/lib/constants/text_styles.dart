@@ -1,0 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:hw12_weather_app/constants/colors.dart';
+
+class AppTextStyles {
+  static const appTitle = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w800,
+    color: AppColors.black,
+  );
+}
