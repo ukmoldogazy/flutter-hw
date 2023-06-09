@@ -1,7 +1,3 @@
-// 50:00 ------  https://youtu.be/HRsufx_Yu44?list=PLWu9OGm_n5CcahNAV5AFUgww4Ee_5tJgU&t=3000
-
-import 'dart:io';
-
 void main(List<String> arguments) {
   resultTask();
 }
