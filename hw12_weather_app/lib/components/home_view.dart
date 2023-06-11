@@ -37,7 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
       Position position = await Geolocator.getCurrentPosition();
       Dio dio = Dio();
       // await Future.delayed(Duration(seconds: 4));
-      final response = await dio.get(APIConst.address());
+      final response = await dio.get(
+          APIConst.address(lat: position.latitude, lon: position.longitude));
       if (response.statusCode == 200) {
         weather = Weather(
           id: response.data['current']['weather'][0]['id'],
@@ -53,7 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
       Position position = await Geolocator.getCurrentPosition();
       Dio dio = Dio();
       // await Future.delayed(Duration(seconds: 4));
-      final response = await dio.get(APIConst.address());
+      final response = await dio.get(
+          APIConst.address(lat: position.latitude, lon: position.longitude));
       if (response.statusCode == 200) {
         weather = Weather(
           id: response.data['current']['weather'][0]['id'],
@@ -191,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: 500,
+          height: 300,
           decoration: BoxDecoration(
             color: Colors.amber,
             borderRadius: BorderRadius.circular(20),
