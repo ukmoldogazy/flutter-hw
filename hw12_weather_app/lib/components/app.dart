@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'home_view.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,10 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(
-        useMaterial3: true,
-      ),
-      home: const MyHomeView(),
+      title: 'Flutter Demo',
+      theme: ThemeData.dark(useMaterial3: true),
+      home: const MyHomePage(),
     );
   }
 }
