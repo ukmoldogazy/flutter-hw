@@ -8,6 +8,11 @@ class AppTextStyles {
     color: AppColors.black,
   );
 
+  static const citiesName = TextStyle(
+    fontSize: 25,
+    fontWeight: FontWeight.w500,
+  );
+
   static const weaherDegree = TextStyle(
     color: AppColors.white,
     fontSize: 100,
