@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hw13_news_app/model/top_news.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -8,6 +9,13 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    super.initState();
+    TopNews().fetchTopNews();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
