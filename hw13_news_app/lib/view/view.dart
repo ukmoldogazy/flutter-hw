@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hw13_news_app/model/top_news.dart';
+import 'package:hw13_news_app/services/fetch_service.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -12,7 +12,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    TopNews().fetchTopNews();
+    TopNewsRepo().fetchTopNews();
     setState(() {});
   }
 
