@@ -1,10 +1,10 @@
 class Source {
   Source({
-    required this.id,
+    this.id,
     required this.name,
   });
 
-  final String id;
+  final String? id;
   final String name;
 
   factory Source.fromJSON(Map<String, dynamic> json) => Source(
