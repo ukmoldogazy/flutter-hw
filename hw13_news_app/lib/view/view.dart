@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hw13_news_app/model/top_news.dart';
 import 'package:hw13_news_app/services/fetch_service.dart';
 
 import '../constants/api_const.dart';
+import 'detail_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -47,7 +49,16 @@ class _HomeViewState extends State<HomeView> {
               itemBuilder: (context, index) {
                 final news = topNews!.article[index];
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailView(
+                          article: news,
+                        ),
+                      ),
+                    );
+                  },
                   child: Card(
                     color: Colors.white,
                     child: Padding(
@@ -57,8 +68,16 @@ class _HomeViewState extends State<HomeView> {
                         children: [
                           Expanded(
                             flex: 3,
-                            child: Image.network(
-                                news.urlToImage ?? APIConst.newsImage),
+                            child:
+                                // CachedNetworkImage(
+                                //   imageUrl: news.urlToImage,
+                                //   placeholder: (context, url) =>
+                                //       const CircularProgressIndicator(),
+                                //   errorWidget: (context, url, error) =>
+                                //       Image.asset('assets/error.png'),
+                                // ),
+                                Image.network(
+                                    news.urlToImage ?? APIConst.newsImage),
                           ),
                           const SizedBox(width: 10),
                           Expanded(
