@@ -1,10 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:hw13_news_app/model/countries.dart';
 import 'package:hw13_news_app/model/top_news.dart';
 import 'package:hw13_news_app/services/fetch_service.dart';
+import 'package:hw13_news_app/theme/app_colors.dart';
+import 'package:hw13_news_app/theme/app_texts.dart';
 
-import '../constants/api_const.dart';
-import 'detail_view.dart';
+import '../components/home_news_card.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -15,8 +16,10 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   TopNews? topNews;
-  Future<void> fetchNews() async {
-    topNews = await TopNewsRepo().fetchTopNews();
+  Future<void> fetchNews([String? domain]) async {
+    topNews = null;
+    setState(() {});
+    topNews = await TopNewsRepo().fetchTopNews(domain);
     setState(() {});
   }
 
@@ -30,16 +33,22 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xfffe5722),
+        backgroundColor: AppColors.appBarBg,
         title: const Text(
-          'News Aggregator',
+          AppTexts.agr,
           style: TextStyle(color: Colors.white),
         ),
-        actions: const [
-          Icon(
-            Icons.more_vert_outlined,
-            color: Colors.white,
-          ),
+        actions: [
+          PopupMenuButton<Country>(onSelected: (Country item) async {
+            await fetchNews(item.domain);
+          }, itemBuilder: (BuildContext context) {
+            return countriesSet
+                .map((e) => PopupMenuItem<Country>(
+                      value: e,
+                      child: Text(e.name),
+                    ))
+                .toList();
+          }),
         ],
       ),
       body: topNews == null
@@ -48,50 +57,7 @@ class _HomeViewState extends State<HomeView> {
               itemCount: topNews!.article.length,
               itemBuilder: (context, index) {
                 final news = topNews!.article[index];
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailView(
-                          article: news,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Card(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child:
-                                // CachedNetworkImage(
-                                //   imageUrl: news.urlToImage,
-                                //   placeholder: (context, url) =>
-                                //       const CircularProgressIndicator(),
-                                //   errorWidget: (context, url, error) =>
-                                //       Image.asset('assets/error.png'),
-                                // ),
-                                Image.network(
-                                    news.urlToImage ?? APIConst.newsImage),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            flex: 5,
-                            child: Text(
-                              news.title,
-                              style: const TextStyle(color: Colors.black),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
+                return CardNews(news: news);
               },
             ),
     );
