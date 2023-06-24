@@ -44,11 +44,22 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ],
+          elevation: 0,
         ),
-        body: const Scaffold(
-          backgroundColor: AppColors.scaffoldBg,
+        body: const Column(
+          // backgroundColor: AppColors.scaffoldBg,
+          children: [
+            Divider(
+              indent: 20,
+              endIndent: 20,
+              thickness: 1.4,
+              color: AppColors.black,
+            ),
+            //
+          ],
         ),
       ),
     );
   }
 }
+// 
