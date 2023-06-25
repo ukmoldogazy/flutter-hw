@@ -11,9 +11,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        sliderTheme: SliderThemeData(
+          thumbShape: SliderComponentShape.noThumb,
+        ),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutt'),
+      home: const MyHomePage(),
     );
   }
 }
