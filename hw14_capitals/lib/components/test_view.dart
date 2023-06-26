@@ -126,10 +126,10 @@ class _TestViewState extends State<TestView> {
                         } else {
                           incorrectAnswer++;
                         }
+                        setState(() {
+                          index++;
+                        });
                       }
-                      setState(() {
-                        index++;
-                      });
                     },
                     child: Center(
                       child: Text(widget.question[index].answers[idx].text),
