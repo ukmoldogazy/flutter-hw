@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: SvgPicture.asset(
                                     'assets/${continents[index].image}.svg',
                                     width: 100,
-                                    color: continents[index].color,
+                                    // color: continents[index].color,
                                   ),
                                 )
                               ],
