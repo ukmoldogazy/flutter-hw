@@ -27,7 +27,7 @@ class Todos {
     return Todos(
       title: map['title'] ?? '',
       description: map['description'] ?? '',
-      isCompleted: map['isComplated'] ?? false,
+      isCompleted: map['isCompleted'] ?? false,
       author: map['author'] ?? '',
     );
   }
