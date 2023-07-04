@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const SelectableText('HomePage'),
+        title: const SelectableText('Home Page'),
       ),
       body: StreamBuilder(
         stream: readTodo(),
@@ -100,6 +100,7 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         },
+        child: const Icon(Icons.add),
       ),
     );
   }

@@ -35,7 +35,7 @@ class _TodoState extends State<Todo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo'),
+        title: const Text('Add Todo'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
